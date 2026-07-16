@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "./components/navbar/navbar";
 import Hero from "./components/hero/hero";
-import Loader from "./components/loader/loader";
+import Loader from "./components/Loader/Loader";
 import Journey from "./components/journey/journey";
 import Skills from "./components/skills/skills";
 import Projects from "./components/projects/projects";
