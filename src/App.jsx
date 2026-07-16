@@ -1,12 +1,12 @@
 import { useEffect, useState } from "react";
-import Navbar from "./components/Navbar/Navbar";
-import Hero from "./components/Hero/Hero";
-import Loader from "./components/Loader/Loader";
-import Journey from "./components/Journey/Journey";
-import Skills from "./components/Skills/Skills";
-import Projects from "./components/Projects/Projects";
-import Contact from "./components/Contact/Contact";
-import Footer from "./components/Footer/Footer";
+import Navbar from "./components/navbar/navbar";
+import Hero from "./components/hero/hero";
+import Loader from "./components/loader/loader";
+import Journey from "./components/journey/journey";
+import Skills from "./components/skills/skills";
+import Projects from "./components/projects/projects";
+import Contact from "./components/contact/contact";
+import Footer from "./components/footer/footer";
 import ScrollProgress from "./components/ScrollProgress/ScrollProgress";
 function App() {
   const [loading, setLoading] = useState(true);
