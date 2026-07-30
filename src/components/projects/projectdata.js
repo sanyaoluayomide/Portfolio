@@ -11,7 +11,7 @@ const projects = [
       "Framer Motion",
     ],
     github: "https://github.com/sanyaoluayomide",
-    live: "#",
+    live: "https://portfolio-woad-pi-23.vercel.app",
     status: "In Progress",
   },
 ];

@@ -1,25 +1,22 @@
 import { motion } from "framer-motion";
+import { ExternalLink } from "lucide-react";
 
-const techStack = [
-  "React",
-  "Vite",
-  "Tailwind CSS",
-  "Framer Motion",
-];
-
-const features = [
-  "Fully Responsive",
-  "Modern UI Design",
-  "Smooth Animations",
-  "Component-Based Architecture",
-];
+const GithubIcon = ({ size = 18 }) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+  >
+    <path d="M12 .5C5.73.5.98 5.24.98 11.5c0 4.87 3.16 9 7.55 10.46.55.1.75-.24.75-.53v-1.86c-3.07.67-3.72-1.48-3.72-1.48-.5-1.28-1.23-1.62-1.23-1.62-1-.68.08-.67.08-.67 1.1.08 1.68 1.13 1.68 1.13.98 1.68 2.57 1.2 3.2.92.1-.71.38-1.2.7-1.47-2.45-.28-5.02-1.22-5.02-5.44 0-1.2.43-2.19 1.13-2.96-.11-.28-.49-1.4.11-2.92 0 0 .93-.3 3.04 1.13a10.6 10.6 0 0 1 5.54 0c2.1-1.43 3.03-1.13 3.03-1.13.6 1.52.22 2.64.11 2.92.7.77 1.13 1.76 1.13 2.96 0 4.23-2.58 5.16-5.04 5.43.39.34.74 1.01.74 2.03v3.01c0 .29.2.64.76.53A10.51 10.51 0 0 0 23.02 11.5C23.02 5.24 18.27.5 12 .5Z" />
+  </svg>
+);
+import projects from "./projectdata";
 
 const Projects = () => {
   return (
-    <section
-      id="projects"
-      className="bg-black text-white px-8 py-32"
-    >
+    <section id="projects" className="bg-white text-[#111116] px-8 py-32">
       <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 60 }}
@@ -27,140 +24,94 @@ const Projects = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <p className="uppercase tracking-[0.4em] text-emerald-400 mb-4">
+        <p className="uppercase tracking-[0.3em] text-sm font-mono text-[#1B2A6B] mb-4">
           Projects
         </p>
 
-        <h2 className="text-5xl md:text-6xl font-bold leading-tight">
-          Building One Project at a Time.
+        <h2
+          className="text-4xl md:text-5xl font-bold leading-tight"
+          style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+        >
+          Building one project at a time.
         </h2>
 
-        <p className="text-gray-400 text-lg leading-8 max-w-3xl mt-8 mb-16">
-          Every project represents another step in my journey toward becoming a
-          Full-Stack and AI Engineer. I focus on writing clean code, creating
-          polished user experiences, and continuously improving my skills.
+        <p className="text-[#111116]/60 text-lg leading-8 max-w-3xl mt-8 mb-16">
+          Every project represents another step in my journey toward becoming
+          a full-stack and AI engineer. I focus on writing clean code,
+          creating polished user experiences, and continuously improving my
+          skills.
         </p>
 
-        <motion.div
-          whileHover={{ y: -8 }}
-          transition={{ duration: 0.3 }}
-          className="overflow-hidden rounded-3xl border border-white/10 bg-white/5 backdrop-blur-lg hover:border-emerald-400/40 hover:shadow-[0_0_45px_rgba(16,185,129,0.18)] transition-all"
-        >
-          {/* Banner */}
+        <div className="space-y-10">
+          {projects.map((project) => (
+            <div
+              key={project.id}
+              className="border border-[#111116]/10 rounded-2xl p-8 md:p-10 hover:border-[#1B2A6B]/40 transition-colors"
+            >
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div>
+                  <span className="uppercase tracking-[0.25em] text-xs font-mono text-[#1B2A6B]">
+                    Featured project
+                  </span>
+                  <h3
+                    className="text-2xl md:text-3xl font-bold mt-3"
+                    style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+                  >
+                    {project.title}
+                  </h3>
+                </div>
 
-          <div className="relative h-64 bg-gradient-to-br from-emerald-500/20 via-black to-black flex items-center justify-center">
-
-            <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.04)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.04)_1px,transparent_1px)] bg-[size:32px_32px]"></div>
-
-            <h2 className="relative text-5xl md:text-6xl font-black tracking-[0.25em] text-white">
-              PORTFOLIO
-            </h2>
-
-          </div>
-
-          {/* Content */}
-
-          <div className="p-10">
-
-            <div className="flex flex-wrap items-center justify-between gap-4">
-
-              <div>
-
-                <span className="uppercase tracking-[0.25em] text-sm text-emerald-400">
-                  Featured Project
+                <span className="rounded-md border border-[#111116]/15 px-4 py-1.5 text-sm text-[#111116]/70">
+                  {project.status}
                 </span>
-
-                <h3 className="text-4xl font-bold mt-3">
-                  Personal Portfolio
-                </h3>
-
               </div>
 
-              <div className="rounded-full bg-emerald-500/10 border border-emerald-500/30 px-5 py-2 text-sm text-emerald-400">
-                Active Development
-              </div>
+              <p className="text-[#111116]/60 leading-7 text-base md:text-lg mt-6 max-w-2xl">
+                {project.description}
+              </p>
 
-            </div>
-
-            <p className="text-gray-400 leading-8 text-lg mt-8">
-              A modern portfolio built from scratch with React, Vite, Tailwind
-              CSS and Framer Motion. Designed to showcase my journey as a
-              Computer Science student while documenting my growth toward
-              Full-Stack Development and Artificial Intelligence.
-            </p>
-
-            {/* Tech Stack */}
-
-            <div className="mt-10">
-
-              <h4 className="text-xl font-semibold mb-5">
-                Tech Stack
-              </h4>
-
-              <div className="flex flex-wrap gap-3">
-
-                {techStack.map((tech) => (
+              <div className="flex flex-wrap gap-2 mt-8">
+                {project.tech.map((tech) => (
                   <span
                     key={tech}
-                    className="rounded-full border border-emerald-500/20 bg-emerald-500/10 px-4 py-2 text-sm text-emerald-300"
+                    className="rounded-md border border-[#111116]/15 px-3 py-1.5 text-sm text-[#111116]/75"
                   >
                     {tech}
                   </span>
                 ))}
-
               </div>
 
-            </div>
+              <div className="flex flex-wrap gap-4 mt-9">
+                <a
+                  href={project.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-2 rounded-md bg-[#111116] text-white px-6 py-3 font-medium hover:bg-[#1B2A6B] transition-colors"
+                >
+                  <GithubIcon size={18} />
+                  View code
+                </a>
 
-            {/* Features */}
-
-            <div className="mt-12">
-
-              <h4 className="text-xl font-semibold mb-5">
-                Highlights
-              </h4>
-
-              <div className="grid sm:grid-cols-2 gap-4">
-
-                {features.map((feature) => (
-                  <div
-                    key={feature}
-                    className="rounded-xl border border-white/10 px-5 py-4 text-gray-300"
+                {project.live && project.live !== "#" ? (
+                  <a
+                    href={project.live}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-2 rounded-md border border-[#111116]/25 px-6 py-3 font-medium hover:border-[#1B2A6B] hover:text-[#1B2A6B] transition-colors"
                   >
-                    ✓ {feature}
-                  </div>
-                ))}
-
+                    <ExternalLink size={18} />
+                    Live demo
+                  </a>
+                ) : (
+                  <span className="flex items-center gap-2 rounded-md border border-[#111116]/10 px-6 py-3 font-medium text-[#111116]/35 cursor-not-allowed">
+                    <ExternalLink size={18} />
+                    Live demo (soon)
+                  </span>
+                )}
               </div>
-
             </div>
-
-            {/* Buttons */}
-
-            <div className="flex flex-wrap gap-5 mt-12">
-
-              <a
-                href="https://github.com/sanyaoluayomide"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-xl bg-emerald-500 px-8 py-4 font-semibold text-black hover:bg-emerald-400 transition"
-              >
-                View GitHub
-              </a>
-
-              <button
-                disabled
-                className="rounded-xl border border-white/20 px-8 py-4 text-gray-500 cursor-not-allowed"
-              >
-                Live Demo (Coming Soon)
-              </button>
-
-            </div>
-
-          </div>
-
-        </motion.div>
-
+          ))}
+        </div>
       </motion.div>
     </section>
   );

@@ -23,10 +23,7 @@ const timeline = [
 
 const Journey = () => {
   return (
-    <section
-      id="journey"
-      className="bg-black text-white px-8 py-32"
-    >
+    <section id="journey" className="bg-white text-[#111116] px-8 py-32">
       <motion.div
         className="max-w-6xl mx-auto"
         initial={{ opacity: 0, y: 60 }}
@@ -34,53 +31,59 @@ const Journey = () => {
         transition={{ duration: 0.8 }}
         viewport={{ once: true }}
       >
-        <p className="uppercase tracking-[0.4em] text-emerald-400 mb-4">
+        <p className="uppercase tracking-[0.3em] text-sm font-mono text-[#1B2A6B] mb-4">
           Journey
         </p>
 
-        <h2 className="text-5xl md:text-6xl font-bold leading-tight max-w-4xl">
+        <h2
+          className="text-4xl md:text-5xl font-bold leading-tight max-w-3xl"
+          style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+        >
           Every developer starts somewhere.
         </h2>
 
-        <p className="text-gray-400 text-lg leading-8 mt-8 max-w-3xl">
+        <p className="text-[#111116]/60 text-lg leading-8 mt-8 max-w-2xl">
           My journey isn't measured only by years, but by continuous learning,
-          curiosity, and a commitment to becoming an engineer capable of solving
-          real-world problems.
+          curiosity, and a commitment to becoming an engineer capable of
+          solving real-world problems.
         </p>
 
-        <div className="relative mt-24">
-
-          <div className="absolute left-4 top-0 bottom-0 w-[2px] bg-gradient-to-b from-emerald-500 via-emerald-400/40 to-transparent"></div>
-
-          <div className="space-y-20">
-            {timeline.map((item, index) => (
-              <motion.div
-                key={item.year}
-                className="relative pl-20"
-                initial={{ opacity: 0, x: -40 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 0.6,
-                  delay: index * 0.15,
-                }}
-                viewport={{ once: true }}
-              >
-                <div className="absolute left-0 top-2 h-8 w-8 rounded-full bg-emerald-500 border-4 border-black shadow-[0_0_25px_rgba(16,185,129,0.5)]"></div>
-
-                <span className="text-emerald-400 text-sm tracking-[0.3em] uppercase">
+        <div className="mt-20 divide-y divide-[#111116]/10">
+          {timeline.map((item, index) => (
+            <motion.div
+              key={item.year}
+              className="grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-16 py-12 first:pt-0"
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.15 }}
+              viewport={{ once: true }}
+            >
+              <div className="flex md:flex-col gap-4 md:gap-2 items-baseline md:items-start">
+                <span
+                  className="text-6xl md:text-8xl font-bold text-[#1B2A6B] leading-none"
+                  style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+                >
                   {item.year}
                 </span>
+                <span className="text-xs font-mono text-[#111116]/40">
+                  0{index + 1}
+                </span>
+              </div>
 
-                <h3 className="text-3xl font-bold mt-2">
+              <div>
+                <h3
+                  className="text-2xl md:text-3xl font-bold"
+                  style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+                >
                   {item.title}
                 </h3>
 
-                <p className="text-gray-400 leading-8 text-lg mt-5 max-w-3xl">
+                <p className="text-[#111116]/60 leading-7 text-base md:text-lg mt-4 max-w-2xl">
                   {item.description}
                 </p>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.div>
+          ))}
         </div>
       </motion.div>
     </section>

@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Menu, X } from "lucide-react";
 
 const links = [
   { name: "Home", id: "home" },
@@ -36,23 +37,25 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 border-b border-white/10 bg-black/30 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto flex items-center justify-between px-8 py-5">
+    <nav className="fixed top-0 left-0 w-full z-50 border-b border-[#111116]/10 bg-[#FFFFFF]/90 backdrop-blur-md">
+      <div className="max-w-6xl mx-auto flex items-center justify-between px-8 py-5">
+        <a
+          href="#home"
+          className="text-xl font-bold text-[#111116]"
+          style={{ fontFamily: '"Space Grotesk", sans-serif' }}
+        >
+          ayomide<span className="text-[#1B2A6B]">.</span>
+        </a>
 
-        <h1 className="text-2xl font-bold tracking-wide">
-          AYOMIDE
-        </h1>
-
-        {/* Desktop */}
-        <div className="hidden md:flex gap-10">
+        <div className="hidden md:flex gap-9 text-sm">
           {links.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
-              className={`transition ${
+              className={`transition-colors ${
                 active === link.id
-                  ? "text-emerald-400"
-                  : "text-gray-300 hover:text-emerald-400"
+                  ? "text-[#1B2A6B] font-medium"
+                  : "text-[#111116]/60 hover:text-[#111116]"
               }`}
             >
               {link.name}
@@ -60,27 +63,26 @@ const Navbar = () => {
           ))}
         </div>
 
-        {/* Mobile Button */}
         <button
-          className="md:hidden text-3xl text-white"
+          className="md:hidden text-[#111116]"
           onClick={() => setMenuOpen(!menuOpen)}
+          aria-label={menuOpen ? "Close menu" : "Open menu"}
         >
-          ☰
+          {menuOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
       </div>
 
-      {/* Mobile Menu */}
       {menuOpen && (
-        <div className="md:hidden bg-black border-t border-white/10">
+        <div className="md:hidden bg-[#FFFFFF] border-t border-[#111116]/10">
           {links.map((link) => (
             <a
               key={link.id}
               href={`#${link.id}`}
               onClick={() => setMenuOpen(false)}
-              className={`block px-8 py-4 transition ${
+              className={`block px-8 py-4 transition-colors ${
                 active === link.id
-                  ? "text-emerald-400"
-                  : "text-gray-300 hover:text-emerald-400"
+                  ? "text-[#1B2A6B] font-medium"
+                  : "text-[#111116]/60 hover:text-[#111116]"
               }`}
             >
               {link.name}
